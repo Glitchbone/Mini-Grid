@@ -3,6 +3,17 @@ MiniGrid
 
 A lightweight fluid grid system inspired by [PocketGrid](https://github.com/arnaudleray/pocketgrid)
 
+Installation
+============
+
+Install via bower:
+
+```sh
+bower install mini-grid
+```
+
+Or you can add minigrid.css manually to your project
+
 Usage
 =====
 
