@@ -1,0 +1,74 @@
+@import "compass/reset/utilities";
+@import "compass/css3/box-sizing";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/float";
+
+$colPrefix: '.col';
+$rowPrefix: '.row';
+$gutterWidth: 16px;
+
+/* Set box-sizing */
+
+#{$rowPrefix}, 
+#{$colPrefix}, 
+#{$rowPrefix}:after, 
+#{$colPrefix}:after, 
+#{$rowPrefix}:before, 
+#{$colPrefix}:before {
+    
+    @include box-sizing(border-box);
+    
+}
+
+/* Clearfix & box-model + list-style reset for ul support */
+
+#{$rowPrefix} {
+    
+    $margin: -$gutterWidth / 2;
+    
+    @include pie-clearfix();
+    @include reset-list-style();
+    @include reset-box-model();
+    
+    margin: {
+        left: $margin;
+        right: $margin;
+    };
+    
+}
+
+/* Nested grid */
+
+#{$rowPrefix} > #{$rowPrefix} {
+    
+    clear: none;
+    float: left;
+    margin: 0 !important;
+    
+}
+
+/* Default column width */
+
+#{$colPrefix} {
+    
+    $padding: $gutterWidth / 2;
+    
+    width: 100%;
+    float: left;
+    
+    padding: {
+        left: $padding;
+        right: $padding;
+    }
+    
+}
+
+/* Generate columns sizes */
+
+@for $i from 1 to 101 {
+
+    #{$colPrefix}#{$i} {
+        width: ($i / 100) * 100%;
+    }
+
+}
