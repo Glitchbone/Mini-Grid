@@ -1,25 +1,30 @@
+body {
+    color: #333;
+}
+
 .container {
     max-width: 1140px;
     margin: 0 auto;
 }
 
 .row {
-    margin-top: 8px;
+    margin-top: 16px;
 }
 
 .col-content {
     padding-top: 16px;
     padding-bottom: 16px;
+    text-indent: 16px;
 }
 
 .red {
-    background: red;
+    background: #FF9F76;
 }
 
 .green {
-    background: green;
+    background: #5AC399;
 }
 
 .yellow {
-    background: yellow;
+    background: #FFE876;
 }
