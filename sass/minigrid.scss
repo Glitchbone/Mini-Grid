@@ -5,9 +5,9 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/utilities/general/float";
 
-$mg-col-prefix: '.col';
-$mg-row-prefix: '.row';
-$mg-gutter-width: 16px;
+$mg-col-prefix: '.col' !default;
+$mg-row-prefix: '.row' !default;
+$mg-gutter-width: 16px !default;
 
 /* Set box-sizing */
 
