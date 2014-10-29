@@ -12,11 +12,8 @@ $mg-gutter-width: 16px !default;
 /* Set box-sizing */
 
 #{$mg-row-prefix}, 
-#{$mg-col-prefix}, 
-#{$mg-row-prefix}:after, 
-#{$mg-col-prefix}:after, 
-#{$mg-row-prefix}:before, 
-#{$mg-col-prefix}:before {
+#{$mg-row-prefix}:after,
+#{$mg-row-prefix}:before {
     
     @include box-sizing(border-box);
     
@@ -49,10 +46,12 @@ $mg-gutter-width: 16px !default;
     
 }
 
-/* Default column width */
+/* Base column properties */
 
-#{$mg-col-prefix} {
-    
+%mg-column {
+	
+	@include box-sizing(border-box);
+	
     $padding: $mg-gutter-width / 2;
 
     position: relative;
@@ -64,7 +63,7 @@ $mg-gutter-width: 16px !default;
         left: $padding;
         right: $padding;
     }
-    
+
 }
 
 /* Generate columns sizes */
@@ -72,6 +71,7 @@ $mg-gutter-width: 16px !default;
 @for $i from 1 to 101 {
 
     #{$mg-col-prefix}#{$i} {
+		@extend %mg-column;
         width: percentage($i / 100);
     }
 
