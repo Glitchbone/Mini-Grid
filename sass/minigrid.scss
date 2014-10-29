@@ -1,22 +1,22 @@
-/* MiniGrid 0.1.0 - Copyright 2014 Adrien Glitchbone - MIT License */
+/* MiniGrid 0.2.0 - Copyright 2014 Adrien Glitchbone - MIT License */
 
 @import "compass/reset/utilities";
 @import "compass/css3/box-sizing";
 @import "compass/utilities/general/clearfix";
 @import "compass/utilities/general/float";
 
-$colPrefix: '.col';
-$rowPrefix: '.row';
-$gutterWidth: 16px;
+$mg-col-prefix: '.col';
+$mg-row-prefix: '.row';
+$mg-gutter-width: 16px;
 
 /* Set box-sizing */
 
-#{$rowPrefix}, 
-#{$colPrefix}, 
-#{$rowPrefix}:after, 
-#{$colPrefix}:after, 
-#{$rowPrefix}:before, 
-#{$colPrefix}:before {
+#{$mg-row-prefix}, 
+#{$mg-col-prefix}, 
+#{$mg-row-prefix}:after, 
+#{$mg-col-prefix}:after, 
+#{$mg-row-prefix}:before, 
+#{$mg-col-prefix}:before {
     
     @include box-sizing(border-box);
     
@@ -24,9 +24,9 @@ $gutterWidth: 16px;
 
 /* Clearfix & box-model + list-style reset for ul support */
 
-#{$rowPrefix} {
+#{$mg-row-prefix} {
     
-    $margin: -$gutterWidth / 2;
+    $margin: -$mg-gutter-width / 2;
     
     @include pie-clearfix();
     @include reset-list-style();
@@ -41,7 +41,7 @@ $gutterWidth: 16px;
 
 /* Nested grid */
 
-#{$rowPrefix} > #{$rowPrefix} {
+#{$mg-row-prefix} > #{$mg-row-prefix} {
     
     clear: none;
     float: left;
@@ -51,11 +51,13 @@ $gutterWidth: 16px;
 
 /* Default column width */
 
-#{$colPrefix} {
+#{$mg-col-prefix} {
     
-    $padding: $gutterWidth / 2;
-    
+    $padding: $mg-gutter-width / 2;
+
+    position: relative;
     width: 100%;
+    min-height: 1px;
     float: left;
     
     padding: {
@@ -69,8 +71,8 @@ $gutterWidth: 16px;
 
 @for $i from 1 to 101 {
 
-    #{$colPrefix}#{$i} {
-        width: ($i / 100) * 100%;
+    #{$mg-col-prefix}#{$i} {
+        width: percentage($i / 100);
     }
 
 }
