@@ -50,7 +50,7 @@ $mg-gutter-width: 16px !default;
 
 %mg-column {
 	
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
 	
     $padding: $mg-gutter-width / 2;
 
@@ -71,7 +71,7 @@ $mg-gutter-width: 16px !default;
 @for $i from 1 to 101 {
 
     #{$mg-col-prefix}#{$i} {
-		@extend %mg-column;
+        @extend %mg-column;
         width: percentage($i / 100);
     }
 
