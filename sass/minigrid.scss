@@ -9,6 +9,8 @@ $mg-col-prefix: '.col' !default;
 $mg-row-prefix: '.row' !default;
 $mg-gutter-width: 16px !default;
 
+$mg-col-list: null;
+
 /* Set box-sizing */
 
 #{$mg-row-prefix}, 
@@ -74,5 +76,17 @@ $mg-gutter-width: 16px !default;
         @extend %mg-column;
         width: percentage($i / 100);
     }
+    
+    $mg-col-list: append($mg-col-list, unquote("#{$mg-col-prefix}#{$i}"), comma) !global;
 
+}
+
+/* 100% width columns under 600px */
+
+@media (max-width:600px) {
+
+    #{$mg-col-list} {
+        width: 100%;
+    }
+    
 }
